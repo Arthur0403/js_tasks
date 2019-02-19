@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        // 1) Напишите функцию copyArr(arr), которая копирует массив не изменяя иригинал.
+
+        //Мое решение - копирование на уровне примитивов. Работает!
+        // var vegetables = ["Капуста", "Репа", "Редиска", "Морковка"];
+
+        // function arrayClone(arr) {
+        //     var clone = []
+        //     for (var i = 0; i < vegetables.length; i++) {
+        //         clone[i] = vegetables[i]
+        //     }
+
+        //     return clone;
+        // }
+
+        // var arr1 = arrayClone(vegetables);
+        // vegetables.pop();
+        // console.log(`Array vegetables - ${vegetables}, array arr1 - ${arr1}`);
+
+        //Решение из ответов с использованием метода slice. Такой способ короче и с использованием метода
+        // var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
+
+        // function arrayClone(arr) {
+        //     return arr.slice(0);
+        // };
+
+        // var arr1 = arrayClone(vegetables);
+
+        // document.writeln(arr1); // ['Капуста', 'Репа', 'Редиска', 'Морковка']
+
+        // 2) Напишите код, который преобразовывает и объединяет все элементы массива в одно строковое значение. 
+        // Элементы массива будут разделены запятой. Получите результат двумя разными методами.
+        // var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
+
+        // var str1 = vegetables.join(', ');
+        // console.log(str1);
+        // console.log(typeof(str1));    
+
+        // Объект Array переопределяет метод toString объекта Object. Для объектов класса Array, метод toString 
+        // соединяет массив и возвращает одну строку, содержащую каждый элемент массива, разделённый запятыми. 
+        // Например, использует метод toString для преобразования массива в строку.(mdn)
+
+        // var str2 = vegetables.toString(); //об этом способе я не задумался
+        // console.log(str2);
+        // console.log(typeof(str2));
+
+        // 3)Пользователь вводит многозначное число через promt. 
+        // Напишите функцию colonOdd(num), которая принимает число num в качестве аргумента и вставляет двоеточие (:)
+        //  между двумя нечетными числами. Например, если вводится число 55639217, то на выход должно быть 5:563:921:7.
+
+        //мое решение
+        // var getNum = prompt('Введите любое многозначное число', '556432');
+
+        // function colonOdd(num){
+        //     var arrNum = getNum.split('');
+        //     var colonArr = [];
+        //     for(var i = 0; i < arrNum.length; i++){
+        //         if(arrNum[i]%2 !== 0){
+        //             colonArr.push(arrNum[i] + ':');
+        //         }else{
+        //             colonArr.push(arrNum[i]);
+        //         }
+        //     }
+
+        //     console.log(arrNum);
+
+        //     return colonArr.join('');
+        // }
+
+        // console.log(colonOdd(getNum));
+
+        // 4) Пользователь вводит строку кириллицей разного регистра. Напишите функцию, которая принимает строку в качестве аргумента 
+        // и заменяет регистр каждого символа на противоположный. Например, если вводится «КаЖдЫй ОхОтНиК», 
+        // то на выходе должен быть массив [кАжДыЙ оХоТнИк].
+
+        // let a = 'a';
+        // let b = 'A';
+
+        // alert(a == b)//false
+
+        //Не смог! Решение из решебника
+        // const str = prompt('Введите слово', 'КаЖдЫй ОхОтНиК');
+
+        // function changeRegister(str) {
+        //     let UPPER = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'; //задал строку в верхнем регистре
+        //     let LOWER = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'; //задал строку в нижнем регистре
+        //     let result = []; //пустой массив
+
+        //     // Метод includes() определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false.
+
+        //     for (var i = 0; i < str.length; i++) {
+        //         if (UPPER.includes(str[i])) {
+        //             result.push(str[i].toLowerCase());
+        //         }
+        //         else if (LOWER.includes(str[i])) {
+        //             result.push(str[i].toUpperCase());
+        //         }
+        //         else {
+        //             result.push(str[i]);
+        //         }
+        //     }
+        //     return result.join('');
+        // };
+
+        // document.writeln(changeRegister(str)); // [кАжДыЙ оХоТнИк] 
+
+        // 5) Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся 
+        // элементы из массива arr (игнорируйте чувствительность к регистру).
+
+        var arr = ["php", "php", "css", "css", "script", "script", "html", "html", "java"]; //пока думаю
+        function removeDuplicates(arr) {
+            var result = [];
+
+            for(var i = 0; i < arr.length; i++){
+                for(var j = 0; j < arr.length; j++){
+                    if(i == j){
+                        continue
+                    }else{
+                        result.push(arr[i]);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        console.log(removeDuplicates(arr));
+    </script>
+</body>
+
+</html>
